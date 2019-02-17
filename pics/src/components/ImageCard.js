@@ -20,6 +20,18 @@ class ImageCard extends React.Component {
     this.setState({ spans, height, width });
   };
 
+  handleClick = e => {
+    e.target.style.borderColor = 'dodgerblue';
+  };
+
+  handleMouseEnter = e => {
+    e.target.style.opacity = '0.5';
+  };
+
+  handleMouseLeave = e => {
+    e.target.style.opacity = '1';
+  };
+
   render() {
     const { description, urls } = this.props.image;
     return (
@@ -27,7 +39,14 @@ class ImageCard extends React.Component {
         className="image-card"
         style={{ gridRowEnd: `span ${this.state.spans}`, position: 'relative' }}
       >
-        <img ref={this.imageRef} src={urls.regular} alt={description} />
+        <img
+          ref={this.imageRef}
+          src={urls.regular}
+          alt={description}
+          onClick={this.handleClick}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+        />
         <ImageOverlay height={this.state.height} width={this.state.width} />
       </div>
     );
