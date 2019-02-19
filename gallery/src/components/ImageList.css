@@ -1,0 +1,12 @@
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(3, 75px);
+  grid-auto-rows: 75px;
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+.image-list img {
+  width: 75px;
+  height: 75px;
+}
