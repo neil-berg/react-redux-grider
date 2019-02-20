@@ -4,7 +4,7 @@ import './TaskItem.css';
 const TaskItem = ({ task, onCheckClick, onTrashClick }) => {
   let className = 'task-item ui segment';
   if (task.completed) {
-    className += 'completed';
+    className += ' completed';
   }
   return (
     <div className={className}>

@@ -3,15 +3,15 @@
   align-items: center;
 }
 
-.task-item.complete {
-  background: grey;
-}
-
 .task-item .task-text {
   flex: 10;
   font-size: 1.25em;
   margin: 0;
   padding: 0;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
 }
 
 .task-item i {

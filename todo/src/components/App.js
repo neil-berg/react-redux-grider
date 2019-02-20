@@ -13,13 +13,16 @@ class App extends React.Component {
     const newTask = {
       id: this.state.counter + 1,
       description: task,
-      completed: false
+      completed: true
     };
-
-    this.setState({
-      tasks: this.state.tasks.concat(newTask),
-      counter: this.state.counter + 1
-    });
+    // this.setState({
+    //   tasks: this.state.tasks.concat(newTask),
+    //   counter: this.state.counter + 1
+    // });
+    this.setState(prevState => ({
+      tasks: prevState.tasks.concat(newTask),
+      counter: prevState.counter + 1
+    }));
   };
 
   onCheckClick = task => {

@@ -10,7 +10,7 @@ const TaskList = ({ tasks, onCheckClick, onTrashClick }) => {
       onTrashClick={onTrashClick}
     />
   ));
-  return <div className="ui segments">{renderedList}</div>;
+  return <div className="task-list ui segments">{renderedList}</div>;
 };
 
 export default TaskList;
