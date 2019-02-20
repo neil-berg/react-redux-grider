@@ -1,0 +1,27 @@
+.task-item {
+  display: flex;
+  align-items: center;
+}
+
+.task-item.complete {
+  background: grey;
+}
+
+.task-item .task-text {
+  flex: 10;
+  font-size: 1.25em;
+  margin: 0;
+  padding: 0;
+}
+
+.task-item i {
+  font-size: 1.75em;
+}
+
+.task-item i.square {
+  color: rgb(8, 168, 115);
+}
+
+.task-item i.trash {
+  color: red;
+}
