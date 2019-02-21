@@ -4,7 +4,7 @@ import TaskList from './TaskList';
 
 class App extends React.Component {
   state = {
-    tasks: [],
+    tasks: JSON.parse(localStorage.getItem('tasks')) || [],
     counter: 0
   };
 
@@ -13,28 +13,41 @@ class App extends React.Component {
     const newTask = {
       id: this.state.counter + 1,
       description: task,
-      completed: true
+      completed: false
     };
-    // this.setState({
-    //   tasks: this.state.tasks.concat(newTask),
-    //   counter: this.state.counter + 1
-    // });
-    this.setState(prevState => ({
-      tasks: prevState.tasks.concat(newTask),
-      counter: prevState.counter + 1
-    }));
+
+    this.setState(prevState => {
+      const updatedTasks = prevState.tasks.concat(newTask);
+      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+      return {
+        tasks: updatedTasks,
+        counter: prevState.counter + 1
+      };
+    });
   };
 
   onCheckClick = task => {
     // Mark this task as completed
-    const taskIndex = this.state.tasks.findIndex(item => item.id === task.id);
-    console.log('to be updated');
+    this.setState(prevState => {
+      const updatedTasks = prevState.tasks.map(item => {
+        return item.id === task.id ? { ...item, completed: true } : item;
+      });
+      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+      return {
+        tasks: updatedTasks
+      };
+    });
   };
 
   onTrashClick = task => {
-    this.setState(prevState => ({
-      tasks: prevState.tasks.filter(item => item.id !== task.id)
-    }));
+    // Remove this task from state and localStorage
+    this.setState(prevState => {
+      const updatedTasks = prevState.tasks.filter(item => item.id !== task.id);
+      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+      return {
+        tasks: updatedTasks
+      };
+    });
   };
 
   render() {
