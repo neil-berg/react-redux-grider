@@ -1,0 +1,16 @@
+button {
+  background: red;
+  color: white;
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+
+button.hidden {
+  display: none;
+  margin-left: 1em;
+}
+button.reveal {
+  display: inherit;
+  margin-left: 1em;
+}

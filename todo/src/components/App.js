@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskBar from './TaskBar';
 import TaskList from './TaskList';
+import Button from './Button';
 
 class App extends React.Component {
   state = {
@@ -50,6 +51,12 @@ class App extends React.Component {
     });
   };
 
+  clearTasks = e => {
+    // Clear tasks from state and local storage
+    this.setState({ tasks: [] });
+    localStorage.removeItem('tasks');
+  };
+
   render() {
     return (
       <div className="ui segments">
@@ -58,6 +65,11 @@ class App extends React.Component {
           tasks={this.state.tasks}
           onCheckClick={this.onCheckClick}
           onTrashClick={this.onTrashClick}
+        />
+        <Button
+          text="Clear tasks"
+          tasks={this.state.tasks}
+          onButtonClick={this.clearTasks}
         />
       </div>
     );
