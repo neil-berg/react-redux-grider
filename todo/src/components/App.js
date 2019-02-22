@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Landing from './Landing';
 import TaskBar from './TaskBar';
 import TaskList from './TaskList';
 import Button from './Button';
@@ -59,19 +62,29 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="ui segments">
-        <TaskBar onInputSubmit={this.onInputSubmit} />
-        <TaskList
-          tasks={this.state.tasks}
-          onCheckClick={this.onCheckClick}
-          onTrashClick={this.onTrashClick}
-        />
-        <Button
-          text="Clear tasks"
-          tasks={this.state.tasks}
-          onButtonClick={this.clearTasks}
-        />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route
+            path="/todo"
+            render={props => (
+              <div className="ui segments">
+                <TaskBar onInputSubmit={this.onInputSubmit} />
+                <TaskList
+                  tasks={this.state.tasks}
+                  onCheckClick={this.onCheckClick}
+                  onTrashClick={this.onTrashClick}
+                />
+                <Button
+                  text="Clear tasks"
+                  tasks={this.state.tasks}
+                  onButtonClick={this.clearTasks}
+                />
+              </div>
+            )}
+          />
+        </Switch>
+      </Router>
     );
   }
 }
