@@ -1,10 +1,11 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
 
-class Landing extends React.Component {
-  render() {
-    return <NavBar navItems={['work', 'about', 'contact']} />;
-  }
-}
+const Landing = () => {
+  return (
+    <div>
+      <h3>Welcome to Neil Berg's portfolio</h3>
+    </div>
+  );
+};
 
 export default Landing;

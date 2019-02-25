@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Landing from './pages/Landing';
+import { BrowserRouter as Router } from 'react-router-dom';
+import NavBar from './components/NavBar';
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route exact path="/" component={Landing} />
+        <NavBar />
       </Router>
     );
   }
