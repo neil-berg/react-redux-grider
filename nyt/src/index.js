@@ -9,7 +9,6 @@ import './index.css';
 ReactDOM.render(
   <Router>
     <Switch>
-      <Route exact path="/" component={Login} />
       <Route exact path="/" component={App} />
       <Route component={NotFound} />
     </Switch>
