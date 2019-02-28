@@ -1,11 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  background: goldenrod;
+`;
+
+const Paragraph = styled.p`
+  color: red;
+  font-size: 26px;
+`;
 
 class Login extends React.Component {
   render() {
     return (
-      <div className="wrapper">
-        <p>Login</p>
-      </div>
+      <Wrapper>
+        <Paragraph>Loginnn</Paragraph>
+      </Wrapper>
     );
   }
 }
