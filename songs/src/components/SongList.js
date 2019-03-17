@@ -4,7 +4,7 @@ import { selectSong } from '../actions';
 import styled from 'styled-components';
 
 const ListContainer = styled.ul`
-  max-width: 250px;
+  width: 100%;
   margin: 1em auto;
   padding: 0;
   border: 1px grey solid;
@@ -55,7 +55,6 @@ class SongList extends Component {
   }
 
   render() {
-    console.log(selectSong);
     return (
       <ListContainer className="songlist-container">
         {this.renderList()}
@@ -65,7 +64,6 @@ class SongList extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return { songs: state.songs };
 };
 
