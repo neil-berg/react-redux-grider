@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import { increment, decrement, login, logout } from './actions';
+
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -24,39 +26,28 @@ const Button = styled.button`
 `;
 
 class App extends React.Component {
-  onClickDecrement = () => {
-    this.props.dispatch({ type: 'DECREMENT' });
-    this.props.dispatch({ type: 'ADD' });
-  };
-
-  onClickIncrement = () => {
-    this.props.dispatch({ type: 'INCREMENT' });
-    this.props.dispatch({ type: 'ADD' });
-  };
-
-  onClickLogin = () => {
-    this.props.dispatch({ type: 'LOGIN' });
-  };
-
-  onClickLogout = () => {
-    this.props.dispatch({ type: 'LOGOUT' });
-  };
-
   render() {
+    const {
+      decrement,
+      increment,
+      clicks,
+      count,
+      login,
+      logout,
+      loggedIn
+    } = this.props;
     return (
       <div>
         <h1 style={{ textAlign: 'center' }}>Counter</h1>
         <Container>
-          <Button onClick={this.onClickDecrement}>-</Button>
-          <div>{this.props.count}</div>
-          <Button onClick={this.onClickIncrement}>+</Button>
+          <Button onClick={decrement}>-</Button>
+          <div>{count}</div>
+          <Button onClick={increment}>+</Button>
         </Container>
-        <div style={{ textAlign: 'center' }}>
-          Total clicks: {this.props.clicks}
-        </div>
-        <Button onClick={this.onClickLogin}>LogIn</Button>
-        <Button onClick={this.onClickLogout}>LogOut</Button>
-        <div>Status: {this.props.loggedIn ? 'true' : 'false'}</div>
+        <div style={{ textAlign: 'center' }}>Total clicks: {clicks}</div>
+        <Button onClick={login}>LogIn</Button>
+        <Button onClick={logout}>LogOut</Button>
+        <div>Status: {loggedIn ? 'true' : 'false'}</div>
       </div>
     );
   }
@@ -68,4 +59,12 @@ const mapStateToProps = state => ({
   loggedIn: state.loggedIn
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(
+  mapStateToProps,
+  {
+    increment,
+    decrement,
+    login,
+    logout
+  }
+)(App);
