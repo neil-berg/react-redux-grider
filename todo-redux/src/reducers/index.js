@@ -20,6 +20,10 @@ const todos = (todos = [], action) => {
       return todos.map(todo =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       );
+    case 'CLEAR_ALL':
+      return todos.map(todo => ({ ...todo, show: false }));
+    case 'COMPLETE_ALL':
+      return todos.map(todo => ({ ...todo, completed: true }));
     default:
       return todos;
   }

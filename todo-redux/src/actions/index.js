@@ -19,3 +19,15 @@ export const completeTodo = id => {
     id
   };
 };
+
+export const clearAll = () => {
+  return {
+    type: 'CLEAR_ALL'
+  };
+};
+
+export const completeAll = () => {
+  return {
+    type: 'COMPLETE_ALL'
+  };
+};

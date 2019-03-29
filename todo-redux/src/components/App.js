@@ -2,6 +2,7 @@ import React from 'react';
 
 import ItemInput from './ItemInput';
 import ItemList from './ItemList';
+import ListControls from './ListControls';
 
 class App extends React.Component {
   render() {
@@ -9,6 +10,7 @@ class App extends React.Component {
       <div>
         <ItemInput />
         <ItemList />
+        <ListControls />
       </div>
     );
   }
