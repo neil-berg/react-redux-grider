@@ -1,6 +1,8 @@
 import React from 'react';
 
 import CommentFeed from './CommentFeed';
+import Counter from './Counter';
+import FetchUsers from './FetchUsers';
 
 const comments = [
   {
@@ -15,12 +17,12 @@ const comments = [
   }
 ];
 
-const noComments = [];
-
 const App = () => {
   return (
     <div>
       <CommentFeed comments={comments} />
+      <Counter />
+      <FetchUsers userID="1" />
     </div>
   );
 };
