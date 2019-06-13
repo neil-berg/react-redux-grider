@@ -5,12 +5,12 @@ const FetchUsers = ({ userID }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async userID => {
       const url = `https://jsonplaceholder.typicode.com/users/${userID}`;
       const res = await axios.get(url);
       setUser(res.data);
     };
-    fetchData();
+    fetchData(userID);
   }, [userID]);
 
   if (!user) {

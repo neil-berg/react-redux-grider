@@ -22,7 +22,7 @@ const App = () => {
     <div>
       <CommentFeed comments={comments} />
       <Counter />
-      <FetchUsers userID="1" />
+      <FetchUsers userID="3" />
     </div>
   );
 };
